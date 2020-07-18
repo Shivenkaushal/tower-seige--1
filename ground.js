@@ -2,6 +2,7 @@ class Ground {
   constructor(x, y, w,h) {
     var options = {
       restitution: 0.5,
+      friction:-10,
       isStatic: true
     };
     this.body = Matter.Bodies.rectangle(x, y, w,h, options);

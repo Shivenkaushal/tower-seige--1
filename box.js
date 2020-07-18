@@ -1,13 +1,16 @@
 
 class box {
-    constructor(x, y, r) {
+    constructor(x, y, w,h) {
       var options = {
-        restitution: 0.5
+        restitution: 0.5,
+        friction: 0.03
+        
       };
-      this.body = Matter.Bodies.circle(x, y, r, options);
-      
+      this.body = Matter.Bodies.rectangle(x, y, w,h, options);
+      this.width = w;
+      this.height = h;
       Matter.World.add(world, this.body);
-      this.r = r;
+    
     }
   
     display() {
@@ -16,8 +19,8 @@ class box {
       push();
       translate(pos.x, pos.y);
       rotate(angle);
-      imageMode(CENTER);
-      image(dotImg, 0, 0, this.r * 2, this.r * 2);
+      rectMode(CENTER);
+      rect( 0, 0, this.width, this.height);
       pop();
     }
   }
